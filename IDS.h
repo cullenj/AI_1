@@ -26,12 +26,16 @@ public:
     IDS(){
     }
     
-    void search(T problem, int limit){
+    void search(T problem){
         
-        for(int i=0; i< limit; i++){
+        int i = 0;
+        while(true) {
+            cout << "Iteration = " << i << "\n";
             DLS_search.~DLS();
             DLS_search.search(problem,i);
-            cout << "Iteration = " << i << "\n";
+            if(DLS_search.over) 
+                break;
+            i++;
         }
     }
     

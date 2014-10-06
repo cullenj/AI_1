@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "4B37915719DCECF50091DCDD"
-               BuildableName = "AIDFS"
-               BlueprintName = "AIDFS"
-               ReferencedContainer = "container:AIDFS.xcodeproj">
+               BuildableName = "AI_Searching"
+               BlueprintName = "AI_Searching"
+               ReferencedContainer = "container:AI_Searching.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "4B37915719DCECF50091DCDD"
-            BuildableName = "AIDFS"
-            BlueprintName = "AIDFS"
-            ReferencedContainer = "container:AIDFS.xcodeproj">
+            BuildableName = "AI_Searching"
+            BlueprintName = "AI_Searching"
+            ReferencedContainer = "container:AI_Searching.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -52,9 +52,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "4B37915719DCECF50091DCDD"
-            BuildableName = "AIDFS"
-            BlueprintName = "AIDFS"
-            ReferencedContainer = "container:AIDFS.xcodeproj">
+            BuildableName = "AI_Searching"
+            BlueprintName = "AI_Searching"
+            ReferencedContainer = "container:AI_Searching.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -70,9 +70,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "4B37915719DCECF50091DCDD"
-            BuildableName = "AIDFS"
-            BlueprintName = "AIDFS"
-            ReferencedContainer = "container:AIDFS.xcodeproj">
+            BuildableName = "AI_Searching"
+            BlueprintName = "AI_Searching"
+            ReferencedContainer = "container:AI_Searching.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

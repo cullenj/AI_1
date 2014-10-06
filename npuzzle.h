@@ -22,27 +22,20 @@ private:
     int n;
     int* puzzle;
     int zero;
-    string state;
+    string prevaction;
     
 public:
     npuzzle() {
         dimension = 0;
         n=0;
         zero = 0;
-        state="Start ";
+        prevaction="Start ";
     }
     
     npuzzle(int x,int* y, string s, int z) {
         puzzleinit(x,y);
-        state = s;
+        prevaction = s;
         zero = z;
-    }
-    
-    npuzzle(int x) {
-        n = 2;
-        puzzle = new int[2];
-        puzzle[0] = 0;
-        puzzle[1] = 0;
     }
     
     bool operator==(const npuzzle& other) {
@@ -69,7 +62,6 @@ public:
     }
     
     void print() {
-        cout << "Current Puzzle State\n";
         for(int i = 0; i < n+1; i++) {
             cout << puzzle[i] << " ";
             if ((i+1)%dimension == 0) {
@@ -81,10 +73,8 @@ public:
         
     bool goal() {
         for(int i = 0; i < n+1; i++) {
-            if(puzzle[i] != i) {
+            if(puzzle[i] != i)
                 return false;
-            }
-            
         }
         return true;
     }
@@ -127,16 +117,16 @@ public:
     
     vector<npuzzle> successors() {
         vector<npuzzle> successors;
-        if(zero%dimension!= 0 && state.compare("Right ") != 0) {
+        if(zero%dimension!= 0 && prevaction.compare("Right ") != 0) {
             successors.push_back(npuzzle(n,left(puzzle),"Left ",zero-1));
         }
-        if(zero>dimension-1 && state.compare("Down ") != 0) {
+        if(zero>dimension-1 && prevaction.compare("Down ") != 0) {
             successors.push_back(npuzzle(n,up(puzzle),"Up ",zero-dimension));
         }
-        if(zero<n+1-dimension && state.compare("Up ") != 0) {
+        if(zero<n+1-dimension && prevaction.compare("Up ") != 0) {
             successors.push_back(npuzzle(n,down(puzzle),"Down ",zero+dimension));
         }
-        if((zero+1)%dimension!=0 && state.compare("Left ") != 0) {
+        if((zero+1)%dimension!=0 && prevaction.compare("Left ") != 0) {
             successors.push_back(npuzzle(n,right(puzzle),"Right ",zero+1));
         }
         return successors;
@@ -146,23 +136,35 @@ public:
         return zero;
     }
     
-    void changestate(npuzzle previous) {
+    void changeprevaction(npuzzle previous) {
         if(previous.getzero() == zero+1) {
-            state = "Left ";
+            prevaction = "Left ";
         }
         else if(previous.getzero() == zero+dimension) {
-            state = "Up ";
+            prevaction = "Up ";
         }
         else if(previous.getzero() == zero-dimension) {
-            state = "Down ";
+            prevaction = "Down ";
         }
         else if(previous.getzero() == zero-1) {
-            state = "Right ";
+            prevaction = "Right ";
         }
     }
     
     int branch() {
         return 4;
+    }
+    
+    void solution(list<npuzzle> path) {
+        list<npuzzle>::iterator itr = path.begin();
+        cout << "Start\n";
+        print();
+        while(itr != path.end()) {
+            cout << itr->prevaction << " ";
+            itr++;
+        }
+        cout << "\nTo get \n";
+        itr->print();
     }
     
 };

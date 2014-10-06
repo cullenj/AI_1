@@ -23,13 +23,14 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		4B37915819DCECF50091DCDD /* AIDFS */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = AIDFS; sourceTree = BUILT_PRODUCTS_DIR; };
+		4B29433319E226710079E716 /* knuth.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = knuth.h; sourceTree = "<group>"; };
+		4B29433419E240300079E716 /* IDS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IDS.h; sourceTree = "<group>"; };
+		4B37915819DCECF50091DCDD /* AI_Searching */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = AI_Searching; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B37915B19DCECF50091DCDD /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		4B37916519DCEF670091DCDD /* npuzzle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = npuzzle.h; sourceTree = "<group>"; };
 		4B37916819DCEFE10091DCDD /* DFS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DFS.h; sourceTree = "<group>"; };
+		4BA2456219E0AB0100837066 /* DLS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DLS.h; sourceTree = "<group>"; };
 		4BA2456319E0ABA600837066 /* UCS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UCS.h; sourceTree = "<group>"; };
-		73A35E4F19E226C300A1F390 /* IDS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IDS.h; sourceTree = "<group>"; };
-		73A35E5019E23AAF00A1F390 /* DLS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DLS.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,7 +47,7 @@
 		4B37914F19DCECF40091DCDD = {
 			isa = PBXGroup;
 			children = (
-				4B37915A19DCECF50091DCDD /* AIDFS */,
+				4B37915A19DCECF50091DCDD /* AI_Searching */,
 				4B37915919DCECF50091DCDD /* Products */,
 			);
 			sourceTree = "<group>";
@@ -54,30 +55,32 @@
 		4B37915919DCECF50091DCDD /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				4B37915819DCECF50091DCDD /* AIDFS */,
+				4B37915819DCECF50091DCDD /* AI_Searching */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		4B37915A19DCECF50091DCDD /* AIDFS */ = {
+		4B37915A19DCECF50091DCDD /* AI_Searching */ = {
 			isa = PBXGroup;
 			children = (
 				4B37915B19DCECF50091DCDD /* main.cpp */,
 				4B37916819DCEFE10091DCDD /* DFS.h */,
 				4BA2456319E0ABA600837066 /* UCS.h */,
+				4BA2456219E0AB0100837066 /* DLS.h */,
+				4B29433419E240300079E716 /* IDS.h */,
 				4B37916519DCEF670091DCDD /* npuzzle.h */,
-				73A35E5019E23AAF00A1F390 /* DLS.h */,
-				73A35E4F19E226C300A1F390 /* IDS.h */,
+				4B29433319E226710079E716 /* knuth.h */,
 			);
+			name = AI_Searching;
 			path = AIDFS;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		4B37915719DCECF50091DCDD /* AIDFS */ = {
+		4B37915719DCECF50091DCDD /* AI_Searching */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 4B37916119DCECF50091DCDD /* Build configuration list for PBXNativeTarget "AIDFS" */;
+			buildConfigurationList = 4B37916119DCECF50091DCDD /* Build configuration list for PBXNativeTarget "AI_Searching" */;
 			buildPhases = (
 				4B37915419DCECF50091DCDD /* Sources */,
 				4B37915519DCECF50091DCDD /* Frameworks */,
@@ -87,9 +90,9 @@
 			);
 			dependencies = (
 			);
-			name = AIDFS;
+			name = AI_Searching;
 			productName = AIDFS;
-			productReference = 4B37915819DCECF50091DCDD /* AIDFS */;
+			productReference = 4B37915819DCECF50091DCDD /* AI_Searching */;
 			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
@@ -101,7 +104,7 @@
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = David;
 			};
-			buildConfigurationList = 4B37915319DCECF50091DCDD /* Build configuration list for PBXProject "AIDFS" */;
+			buildConfigurationList = 4B37915319DCECF50091DCDD /* Build configuration list for PBXProject "AI_Searching" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -113,7 +116,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				4B37915719DCECF50091DCDD /* AIDFS */,
+				4B37915719DCECF50091DCDD /* AI_Searching */,
 			);
 		};
 /* End PBXProject section */
@@ -203,21 +206,21 @@
 		4B37916219DCECF50091DCDD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = AI_Searching;
 			};
 			name = Debug;
 		};
 		4B37916319DCECF50091DCDD /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = AI_Searching;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		4B37915319DCECF50091DCDD /* Build configuration list for PBXProject "AIDFS" */ = {
+		4B37915319DCECF50091DCDD /* Build configuration list for PBXProject "AI_Searching" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4B37915F19DCECF50091DCDD /* Debug */,
@@ -226,7 +229,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		4B37916119DCECF50091DCDD /* Build configuration list for PBXNativeTarget "AIDFS" */ = {
+		4B37916119DCECF50091DCDD /* Build configuration list for PBXNativeTarget "AI_Searching" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4B37916219DCECF50091DCDD /* Debug */,
