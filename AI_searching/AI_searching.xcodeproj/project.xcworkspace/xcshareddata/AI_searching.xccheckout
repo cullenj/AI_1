@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>5AF10FE7-3A63-4D81-8225-74CE5961E571</string>
+	<key>IDESourceControlProjectName</key>
+	<string>AI_searching</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>5F7936BF-35D7-4C94-9870-3A10B14D9692</key>
+		<string>https://github.com/cullenj/AI_1.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>AI_searching/AI_searching.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>5F7936BF-35D7-4C94-9870-3A10B14D9692</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/cullenj/AI_1.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>5F7936BF-35D7-4C94-9870-3A10B14D9692</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>5F7936BF-35D7-4C94-9870-3A10B14D9692</string>
+			<key>IDESourceControlWCCName</key>
+			<string>AI_1</string>
+		</dict>
+	</array>
+</dict>
+</plist>

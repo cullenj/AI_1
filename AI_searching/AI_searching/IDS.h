@@ -28,14 +28,14 @@ public:
     
     void search(T problem){
         
-        int i = 0;
+        int i = 1;
         while(true) {
             cout << "Iteration = " << i << "\n";
             DLS_search.~DLS();
             DLS_search.search(problem,i);
-            if(DLS_search.over) 
-                break;
             i++;
+            if(DLS_search.over)
+                break;
         }
     }
     

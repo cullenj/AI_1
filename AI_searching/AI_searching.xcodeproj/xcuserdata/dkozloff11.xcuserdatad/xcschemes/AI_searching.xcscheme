@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "4B37915719DCECF50091DCDD"
-               BuildableName = "AI_Searching"
-               BlueprintName = "AI_Searching"
-               ReferencedContainer = "container:AI_Searching.xcodeproj">
+               BlueprintIdentifier = "4B40932319E260F5000EEA1E"
+               BuildableName = "AI_searching"
+               BlueprintName = "AI_searching"
+               ReferencedContainer = "container:AI_searching.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -32,10 +32,10 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "4B37915719DCECF50091DCDD"
-            BuildableName = "AI_Searching"
-            BlueprintName = "AI_Searching"
-            ReferencedContainer = "container:AI_Searching.xcodeproj">
+            BlueprintIdentifier = "4B40932319E260F5000EEA1E"
+            BuildableName = "AI_searching"
+            BlueprintName = "AI_searching"
+            ReferencedContainer = "container:AI_searching.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -51,10 +51,10 @@
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "4B37915719DCECF50091DCDD"
-            BuildableName = "AI_Searching"
-            BlueprintName = "AI_Searching"
-            ReferencedContainer = "container:AI_Searching.xcodeproj">
+            BlueprintIdentifier = "4B40932319E260F5000EEA1E"
+            BuildableName = "AI_searching"
+            BlueprintName = "AI_searching"
+            ReferencedContainer = "container:AI_searching.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -69,10 +69,10 @@
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "4B37915719DCECF50091DCDD"
-            BuildableName = "AI_Searching"
-            BlueprintName = "AI_Searching"
-            ReferencedContainer = "container:AI_Searching.xcodeproj">
+            BlueprintIdentifier = "4B40932319E260F5000EEA1E"
+            BuildableName = "AI_searching"
+            BlueprintName = "AI_searching"
+            ReferencedContainer = "container:AI_searching.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
