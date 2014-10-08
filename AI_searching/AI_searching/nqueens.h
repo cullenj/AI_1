@@ -30,7 +30,7 @@ public:
     
     nqueens(int x){
         n=x;
-        vector<int> board(x,-1);
+        vector<int> board;
     }
     
     nqueens(vector<int> x,int y){
@@ -39,6 +39,9 @@ public:
     }
     
     bool operator==(const nqueens& other) {
+        if(other.board.size()!= board.size()){
+            return false;
+        }
         for (int i = 0; i < other.board.size(); i++) {
             if(other.board[i] != board[i]) {
                 return false;
@@ -58,16 +61,23 @@ public:
             return false;
         }
     }
-    
+        
     list<int> get_queen_pos(){
         list<int> positions;
-        for (int queen_pos=0; queen_pos < n; queen_pos++){
-            for (int k=0; k<board.size();k++){
-                if (queen_pos == board[k]) break; //same row?
-                if ((board[k]-k)==(queen_pos-board.size()+1)) break; //down diagonal?
-                if ((board[k]+k)==(queen_pos+board.size()+1)) break; //up diagonal?
-                positions.push_back(queen_pos); //postion does not attack other "k" queens so add to list
+        bool valid = true;
+        if(board.size()==0){
+            for (int queen_pos=0; queen_pos < n; queen_pos++){
+                positions.push_back(queen_pos);
             }
+        }
+        for (int queen_pos=0; queen_pos < n; queen_pos++){
+            valid = true;
+            for (int k=0; k<board.size();k++){
+                if (queen_pos == board[k]) {valid = false; break;} //same row?
+                if ((board[k]-k)==(queen_pos-board.size())) {valid = false; break;} //down diagonal?
+                if ( board[k] - queen_pos == board.size()-k ) {valid = false; break;} //up diagonal?
+            }
+            if ( valid ) positions.push_back(queen_pos);//postion does not attack other "k" queens so add to list
         }
         return positions;
     }
@@ -85,22 +95,23 @@ public:
         list<int> positions = get_queen_pos();
         
         for (list<int>::iterator itr = positions.begin(); itr !=positions.end() ;itr++)
-            successors.push_back(nqueens(new_board(*itr),n+1));
+            successors.push_back(nqueens(new_board(*itr),n));
         
         return successors;
     }
     
-    
+    /*
     void print(){
         cout << "The board vector is " << board.size() << endl;
         cout << "The board size is " << n << endl;
         for(int i=0; i<board.size();i++) {
             cout << board[i] << " ";
         }
+        cout << "\n";
     }
-    
-   /* void print_sol(){
-        for(int i=0; i<n; i++){
+    */
+    void print(){
+        for(int i=0; i<board.size(); i++){
             for (int j=0; j<n; j++){
                     if (j==board[i]){
                         cout << "X ";
@@ -110,8 +121,21 @@ public:
             }
                 cout << endl;
         }
+        cout << endl;
     }
-    */
+    
+    string string() {
+        stringstream str;
+        for (int i = 0; i < n+1; i++) {
+            str << board[i];
+        }
+        return str.str();
+    }
+    
+    void solution(list<nqueens> path) {
+        cout << endl << "Length of Soln. Path: " << path.size() +1 << endl;
+        path.end()->print();
+    }
     
 };
 
