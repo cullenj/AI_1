@@ -91,6 +91,7 @@ public:
             cout << ")";
         }
         cout << " = " << end << "\n";
+        cout << "Path size: " << path.size() << "\n";
     }
     
     string string() {

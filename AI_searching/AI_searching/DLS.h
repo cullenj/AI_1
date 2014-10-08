@@ -23,7 +23,6 @@ private:
     {
         Node* parent;
         T state;
-        int *deadends;
         int depth;
         Node() {  }
         Node(const T& x) {
@@ -40,16 +39,20 @@ public:
     long size;
     list <Node> explored;
     int depthlimit;
+    long nodeslookedat;
     
     DLS() {
         over = false;
         depthlimit = 0;
         size = 0;
+        nodeslookedat = 0;
     }
     
     void search(T& problem,int maxdepth) {
         depthlimit = maxdepth;
-        expand(Node(problem));
+        explored.push_back(Node(problem));
+        expand(&*explored.begin());
+        nodeslookedat++;
     }
     
     ~DLS() {
@@ -58,41 +61,43 @@ public:
         }
     }
     
-    int expand(Node leaf) {
+    int expand(Node* leaf) {
         
         
         if(over) {
             return 0;
         } //Solution was found in some other recursive call of expand
         
-        leaf.state.print();
+        leaf->state.print();
         
         size = explored.size();
-        Node successor;
-        successor.parent = &leaf;
-        successor.depth = leaf.depth+1;
 
-        if(leaf.state.goal()) {
-            solution = leaf;
+        if(leaf->state.goal()) {
+            solution = *leaf;
             cout << "SOLUTION FOUND\n\n";
             over = true;
             printsolution();
             return 1;
         } //Goal is found
         
-        if(successor.depth > depthlimit) {
+        if(leaf->depth + 1 > depthlimit) {
             return 0;
         } //Depth limit reached
         
-        explored.push_back(leaf);
+        explored.push_back(*leaf);
         
-        vector<T> successors = leaf.state.successors();
+        vector<T> successors = leaf->state.successors();
         for(int i = 0; i < successors.size(); i++) {
             if(!duplicate(successors[i])) { //Expand all non duplicate successors
+                Node successor;
+                successor.depth = leaf->depth + 1;
+                successor.parent = leaf;
                 successor.state = successors[i];
-                expand(successor);
+                nodeslookedat++;
+                expand(&successor);
             }
         }
+        explored.pop_back();
         return 0;
     }
     
