@@ -17,12 +17,11 @@
 using namespace std;
 
 class nqueens{
-
-private:
-    vector<int> board;
-    int n;
     
 public:
+    vector<int> board;
+    int n;
+    string domain = "Nqueens ";
     
     nqueens(){
         n=0;
@@ -36,6 +35,10 @@ public:
     nqueens(vector<int> x,int y){
         board=x;
         n=y;
+    }
+    
+    void init(int x) {
+        n = x;
     }
     
     bool operator==(const nqueens& other) {
@@ -111,8 +114,8 @@ public:
     }
     */
     void print(){
-        for(int i=0; i<board.size(); i++){
-            for (int j=0; j<n; j++){
+        for(int j=0; j<board.size(); j++){
+            for (int i=0; i<n; i++){
                     if (i==board[j]){
                         cout << "X ";
                     } else {
@@ -121,13 +124,10 @@ public:
             }
                 cout << endl;
         }
-        cout << endl;
-        cout << "The board vector is " << board.size() << endl;
-        cout << "The board size is " << n << endl;
         for(int i=0; i<board.size();i++) {
             cout << board[i] << " ";
         }
-        cout << "\n";
+        cout << "\n\n";
 
     }
     
@@ -141,7 +141,15 @@ public:
     
     void solution(list<nqueens> path) {
         cout << endl << "Length of Soln. Path: " << path.size() +1 << endl;
-        path.end()->print();
+        (--path.end())->print();
+    }
+    
+    long hashkey() {
+        long hash = 0;
+        for(int i = 0; i < board.size(); i++ ) {
+            hash = board[i]*pow(10,i);
+        }
+        return hash;
     }
     
 };

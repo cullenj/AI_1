@@ -27,8 +27,7 @@
 /* Begin PBXFileReference section */
 		4B943BD619E515CA00EB5363 /* AI_searching */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = AI_searching; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B943BDB19E515CA00EB5363 /* AI_searching.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = AI_searching.1; sourceTree = "<group>"; };
-		4B943BE219E515EA00EB5363 /* DFShash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DFShash.h; sourceTree = "<group>"; };
-		4B943BE319E515EA00EB5363 /* DFSnohash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DFSnohash.h; sourceTree = "<group>"; };
+		4B943BE219E515EA00EB5363 /* DFS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DFS.h; sourceTree = "<group>"; };
 		4B943BE419E515EA00EB5363 /* DLS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLS.h; sourceTree = "<group>"; };
 		4B943BE519E515EA00EB5363 /* IDS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDS.h; sourceTree = "<group>"; };
 		4B943BE619E515EA00EB5363 /* knuth.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = knuth.h; sourceTree = "<group>"; };
@@ -68,8 +67,7 @@
 			isa = PBXGroup;
 			children = (
 				4B943BEB19E5160B00EB5363 /* main.cpp */,
-				4B943BE219E515EA00EB5363 /* DFShash.h */,
-				4B943BE319E515EA00EB5363 /* DFSnohash.h */,
+				4B943BE219E515EA00EB5363 /* DFS.h */,
 				4B943BE419E515EA00EB5363 /* DLS.h */,
 				4B943BE519E515EA00EB5363 /* IDS.h */,
 				4B943BE619E515EA00EB5363 /* knuth.h */,
@@ -241,6 +239,7 @@
 				4B943BE119E515CA00EB5363 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

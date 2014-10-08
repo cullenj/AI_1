@@ -33,8 +33,6 @@ private:
     
     
 public:
-    
-    Node solution;
     bool over;
     long size;
     list <Node> explored;
@@ -49,6 +47,8 @@ public:
     }
     
     void search(T& problem,int maxdepth) {
+        cout << "\nDepth limitsed search on domain " << problem.domain << "\n";
+        cout << "Max depth of " << maxdepth << "\n";
         depthlimit = maxdepth;
         explored.push_back(Node(problem));
         expand(&*explored.begin());
@@ -73,7 +73,7 @@ public:
         size = explored.size();
 
         if(leaf->state.goal()) {
-            solution = *leaf;
+            explored.push_back(*leaf);
             cout << "SOLUTION FOUND\n\n";
             over = true;
             printsolution();
@@ -113,11 +113,15 @@ public:
     
     
     void printsolution() {
+        cout << "Solution Found!\n";
+        cout << "Number of nodes expanded: " << nodeslookedat << "\n\n";
         list<T> solutionpath;
+        Node solution = *--explored.end();
         while(solution.state != explored.begin()->state) {
             solutionpath.push_front(solution.state);
             solution = *solution.parent;
         }
+        solutionpath.push_front(explored.begin()->state);
         solution.state.solution(solutionpath);
     }
 

@@ -1,10 +1,6 @@
 #include <iostream>
 #include <time.h>
-<<<<<<< HEAD
 #include "DFS.h"
-=======
-#include "DFShash.h"
->>>>>>> FETCH_HEAD
 #include "DLS.h"
 #include "IDS.h"
 #include "npuzzle.h"
@@ -18,102 +14,77 @@ int main()
 {
     
     
-    //time_t begin;
-    //time_t end;
+    time_t begin;
+    time_t end;
+    
+    
     int *init = new int[9];
     for (int i = 0; i < 9; i++) {
         init[i] = i;
     }
+    //init[0] = 3; init[3] = 6; init[6] = 7; init[7] = 8; init[8] = 5; init[5] = 0;
+    init[0] = 5; init[1] = 1; init[2] = 4; init[3] = 0; init[4] = 8; init[5] = 2; init[6] = 7; init[7] = 3; init[8] = 6;
+    npuzzle probone; probone.puzzleinit(8, init);
+    
+    DFS<npuzzle> srchone;
+    DLS<npuzzle> srchtwo;
+    IDS<npuzzle> srchthree;
+    
+    /*
+    time(&begin);
+    srchone.search(probone);
+    time(&end);
+    cout << "\n\nRun Time: " << difftime(end,begin) << "\n";
+    */
     
     time(&begin);
-    
-    /*
-    init[0] = 3; init[3] = 0;
-    init[4] = 0; init[3] = 4;
-     */
-<<<<<<< HEAD
-=======
-    init[0] = 2; init [2] = 0;
-    
-    int* testone = new int[9];
-    testone[0] = 8; testone[1] = 3; testone[2] = 5; testone[3] = 4; testone[4] = 1; testone[5] = 6; testone[6] = 2; testone[7]=7; testone[8]=0;
->>>>>>> FETCH_HEAD
-    /*
-    npuzzle* start = new npuzzle();
-    start->puzzleinit(8,init);
-
-    knuth problem = knuth(3,10,"Start");
-    */
-    int x=8;
-    
-<<<<<<< HEAD
-    vector<int> vect_test(1,4);
-    nqueens eightqueens = nqueens(vect_test,x);
-
-//    npuzzle start;
-//    start.puzzleinit(x,init);
-    
-    eightqueens.print();
-    
-    cout << "Search Starting\n";
-    DLS<nqueens> eightq;
-    eightq.search(eightqueens,x);
-=======
-    vector<int> vect_test(8,2);
-    nqueens eightqueens = nqueens(vect_test,8);
-    
-    npuzzle start;
-    start.puzzleinit(8,testone);
-    /*
->>>>>>> FETCH_HEAD
-    
-    /*
-    
-    
-    DFS<npuzzle> search;
-    search.problem(start);
-    cout << "Search Starting\n";
-    
-    
-    
-    
-   search.expand();
-     
-    */
-    
-    /*
-    DLS<npuzzle> searchtwo;
-    searchtwo.search(*start, 2);
-<<<<<<< HEAD
-    
-    
+    srchtwo.search(probone,25);
     time(&end);
-    cout << "Run Time: " << difftime(end,begin);
-
-=======
-    */
->>>>>>> FETCH_HEAD
-    
-    knuth problem = knuth(3,10,"Start");
-    
-    DFShash<npuzzle> searchthree;
-    searchthree.problem(start);
-    searchthree.expand();
-    
-<<<<<<< HEAD
-=======
-    DLS<knuth> searchthree;
-    searchthree.search(problem, 20);
-     */
-=======
->>>>>>> FETCH_HEAD
-    /*
-    IDS<npuzzle> searchfour;
-    searchfour.search(*start);
-    */
-    
+    cout << "\n\nRun Time: " << difftime(end,begin) << "\n";
+    time(&begin);
+    srchthree.search(probone);
     time(&end);
-    cout << "\n\nRun Time: " << difftime(end,begin);
+    cout << "\n\nRun Time: " << difftime(end,begin) << "\n";
+    
+    knuth probtwo;
+    probtwo.init(4,5);
+    
+    DFS<knuth> srchfour;
+    DLS<knuth> srchfive;
+    IDS<knuth> srchsix;
+    
+    time(&begin);
+    srchfour.search(probtwo);
+    time(&end);
+    cout << "\n\nRun Time: " << difftime(end,begin) << "\n";
+    time(&begin);
+    srchfive.search(probtwo,15);
+    time(&end);
+    cout << "\n\nRun Time: " << difftime(end,begin) << "\n";
+    time(&begin);
+    srchsix.search(probtwo);
+    time(&end);
+    cout << "\n\nRun Time: " << difftime(end,begin) << "\n";
+    
+    nqueens probthree;
+    probthree.init(8);
+    
+    DFS<nqueens> srchseven;
+    DLS<nqueens> srcheight;
+    IDS<nqueens> srchnine;
+    
+    time(&begin);
+    srchseven.search(probthree);
+    time(&end);
+    cout << "\n\nRun Time: " << difftime(end,begin) << "\n";
+    time(&begin);
+    srcheight.search(probthree,8);
+    time(&end);
+    cout << "\n\nRun Time: " << difftime(end,begin) << "\n";
+    time(&begin);
+    srchnine.search(probthree);
+    time(&end);
+    cout << "\n\nRun Time: " << difftime(end,begin) << "\n";
     
     return 0;
 };

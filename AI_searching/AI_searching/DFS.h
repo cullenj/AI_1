@@ -16,7 +16,7 @@
 using namespace std;
 template <class T>
 
-class DFShash {
+class DFS {
     
     private:
     
@@ -31,6 +31,7 @@ class DFShash {
         
     };
     
+    Node start;
     long nodeslookedat;
     bool over;
     stack <Node> tree;
@@ -39,26 +40,29 @@ class DFShash {
     long size;
     
     public:
-        DFShash(T& problem) {
+        DFS(T& problem) {
             over = false;
             tree.push(Node(problem));
             nodeslookedat = 0;
         }
         
-        DFShash() {
+        DFS() {
             over = false;
             nodeslookedat = 0;
         }
         
-        ~DFShash()
+        ~DFS()
         {
             while(!tree.empty()) {
                 tree.pop();
             }
         }
         
-        void problem(T& problem) {
+        void search(T& problem) {
+            cout << "\nDepth first search on domain " << problem.domain << "\n";
             tree.push(Node(problem));
+            start = tree.top();
+            expand();
         }
         
         int expand() {
@@ -70,6 +74,7 @@ class DFShash {
             if (tree.empty()) {
                 over = true;
                 cout << "No solution found";
+                cout << "Number of nodes expanded: " << nodeslookedat << "\n\n";
                 return -1;
             }
             
@@ -102,10 +107,9 @@ class DFShash {
                 return 0;
             }
             
-            while (tree.top().state != fringe->previous->state && tree.size() > 0) { //If none of the successors were viable options or all successor paths have been explored and turned out to be deadends
-                explored[tree.top().state.hashkey()] = 0;
-                tree.pop();
-            } //If all of the successors were deadends go up a level
+            explored[tree.top().state.hashkey()] = 0;
+            tree.pop();
+            
             return 0;
         }
     
@@ -116,7 +120,19 @@ class DFShash {
             return true;
         }
     
+        /*bool duplicate(T& check) {
+            Node itr = tree.top();
+            while(itr.state != start.state) {
+                if (check == itr.state)
+                    return true;
+                itr = *itr.previous;
+            }
+            return false;
+        }*/
+    
         void printsolution() {
+            cout << "Solution Found!\n";
+            cout << "Number of nodes expanded: " << nodeslookedat << "\n\n";
             list<T> path;
             Node* itr = &tree.top();
             while (tree.size() > 1) {

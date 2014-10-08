@@ -27,7 +27,7 @@ public:
     }
     
     void search(T problem){
-        
+        cout << "\nIterative deepening search on domain " << problem.domain << "\n";
         int i = 1;
         while(true) {
             cout << "Iteration = " << i << "\n";

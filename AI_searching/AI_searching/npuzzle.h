@@ -18,14 +18,16 @@
 using namespace std;
 
 class npuzzle {
-private:
+    
+public:
     int dimension;
     int n;
     int* puzzle;
     int zero;
     string prevaction;
+    string domain = "Npuzzle ";
     
-public:
+    
     npuzzle() {
         dimension = 0;
         n=0;
@@ -147,29 +149,8 @@ public:
         return zero;
     }
     
-    void changeprevaction(npuzzle previous) {
-        if(previous.getzero() == zero+1) {
-            prevaction = "Left ";
-        }
-        else if(previous.getzero() == zero+dimension) {
-            prevaction = "Up ";
-        }
-        else if(previous.getzero() == zero-dimension) {
-            prevaction = "Down ";
-        }
-        else if(previous.getzero() == zero-1) {
-            prevaction = "Right ";
-        }
-    }
-<<<<<<< HEAD
-        
-    string string() {
-        stringstream str;
-=======
-    
     string str() {
         ostringstream str;
->>>>>>> FETCH_HEAD
         for (int i = 0; i < n+1; i++) {
             str << puzzle[i];
         }
@@ -177,7 +158,7 @@ public:
     }
     
     long hashkey() {
-        long hash;
+        long hash = 0;
         for (int i = 0; i < n+1; i++) {
             if (puzzle[i] == 0) {
                 hash = hash + pow(10,i+1);
@@ -189,15 +170,15 @@ public:
     }
     
     void solution(list<npuzzle> path) {
+        cout << "Length of Soln. Path: " << path.size() << endl;
         list<npuzzle>::iterator itr = path.begin();
-        cout << "Start";
+        cout << "Started at";
         itr->print();
         itr++;
         while(itr != path.end()) {
-            cout << itr->prevaction;
+            cout << itr->prevaction << "\n";
             itr++;
         }
-        cout << "\nPath size: " << path.size() << "\n";
     }
     
 };

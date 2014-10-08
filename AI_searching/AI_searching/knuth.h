@@ -17,15 +17,16 @@
 class knuth {
     
 public:
-    long start;
-    long end;
+    long double start;
+    long double end;
     string prevaction;
+    string domain = "Knuth ";
  
     knuth() {
         
     }
     
-    knuth(long x,long y, string s) { //x and y are positive ints
+    knuth(long double x,long double y, string s) { //x and y are positive ints
         start = x;
         end = y;
         prevaction = s;
@@ -35,18 +36,27 @@ public:
         
     }
     
+    void init(long double x, long double y) {
+        start = x;
+        end = y;
+        prevaction = "Start ";
+    }
+    
     vector<knuth> successors() {
         vector<knuth> successors;
-        successors.push_back(knuth(sqrt(start),end,"sqrt("));
-        if(factorial(start) > 0) {
-            successors.push_back(knuth(factorial(start),end,"factorial("));
+        if(!(start < 2 && end > 2)) {
+            successors.push_back(knuth(floor(start),end,"floor("));
+            if(start > end)
+                successors.push_back(knuth(sqrt(start),end,"sqrt("));
+            if(start < pow(10,3) && floor(start) == start && factorial(start) > 0) {
+                successors.push_back(knuth(factorial(start),end,"factorial("));
+            }
         }
-        successors.push_back(knuth(floor(start),end,"floor("));
         return successors;
     }
     
-    long factorial(long x) {
-        long factorial = 1;
+    long double factorial(long double x) {
+        long double factorial = 1;
         for(int i = 0; x - i > 0; i++) {
             factorial = factorial * (x-i);
         }
@@ -80,6 +90,7 @@ public:
     }
     
     void solution(list<knuth> path) {
+        cout << "Length of Soln. Path: " << path.size() << endl;
         list<knuth>::iterator itr = path.end();
         itr--;
         while(itr != path.begin()) {
@@ -96,8 +107,13 @@ public:
     
     string string() {
         char numstr[21];
-        sprintf(numstr,"%ld %ld",start,end);
+        sprintf(numstr,"%Lf %Lf",start,end);
         return numstr;
+    }
+    
+    long hashkey() {
+        return (long) (start*pow(10,5));
+        
     }
     
 };
