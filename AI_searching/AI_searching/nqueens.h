@@ -113,7 +113,7 @@ public:
     void print(){
         for(int i=0; i<board.size(); i++){
             for (int j=0; j<n; j++){
-                    if (j==board[i]){
+                    if (i==board[j]){
                         cout << "X ";
                     } else {
                         cout << "0 ";
@@ -122,6 +122,13 @@ public:
                 cout << endl;
         }
         cout << endl;
+        cout << "The board vector is " << board.size() << endl;
+        cout << "The board size is " << n << endl;
+        for(int i=0; i<board.size();i++) {
+            cout << board[i] << " ";
+        }
+        cout << "\n";
+
     }
     
     string string() {
