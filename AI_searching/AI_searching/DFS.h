@@ -12,6 +12,7 @@
 #include <list>
 #include <iostream>
 #include <vector>
+#include <unordered_map>
 using namespace std;
 template <class T>
 
@@ -23,34 +24,30 @@ class DFS {
     {
         Node* previous;
         T state;
-        int *deadends;
         Node() {  }
-        Node(const T& x,int y) {
+        Node(const T& x) {
             state = x;
-            deadends = new int[y];
-            for(int i = 0; i < y; i++) {
-                deadends[i] = 0;
             }
-        }
+        
     };
     
+    long nodeslookedat;
     bool over;
     stack <Node> tree;
-    list <Node> explored;
+    unordered_map <string,int> explored; //Unique string expression for every possible state,
+                                         //Set to 1 if visited and 0 if not
     long size;
-    long exploredsize;
     
     public:
         DFS(T& problem) {
             over = false;
-            tree.push(Node(problem,problem.branch()));
-            tree.top().previous = new Node(T(0),problem.branch());
-            //Marker for where to stop when looking back through the list
+            tree.push(Node(problem));
+            nodeslookedat = 0;
         }
         
         DFS() {
             over = false;
-            
+            nodeslookedat = 0;
         }
         
         ~DFS()
@@ -61,17 +58,21 @@ class DFS {
         }
         
         void problem(T& problem) {
-            tree.push(Node(problem,problem.branch()));
-            tree.top().previous = new Node(T(0),problem.branch());
+            tree.push(Node(problem));
         }
         
         int expand() {
+            
+            if (over) {
+                return 0;
+            }
+            
             size = tree.size();
-            exploredsize = explored.size();
             tree.top().state.print(); //Check State
             
             if (tree.empty()) {
-                end(T(0));  //No solution found, and (ideally) all possible branches checked
+                over = true;
+                cout << "No solution found";
                 return -1;
             }
             
@@ -80,58 +81,52 @@ class DFS {
             successors = fringe->state.successors();
             
             if(fringe->state.goal()) {
-                end(fringe->state);  //Check if we are at goal (if so stop
+                over = true;
+                printsolution();
                 return 1;
             }
             
             for (int i = 0 ; i < successors.size() ; i++ ) {
-                if (fringe->deadends[i] == 0) {
-                    if (!duplicate(successors[i])) {
-                        tree.push(Node(successors[i],successors[i].branch()));
-                        tree.top().previous = fringe;
-                        break;
+                if (!duplicate(successors[i])) {
+                    nodeslookedat++;
+                    tree.push(Node(successors[i]));
+                    explored[successors[i].string()] = 1;
+                    tree.top().previous = fringe;
+                    expand();
                     } //Take first option that isn't a duplicate.
-                }
+                
             }
             
-            if (tree.top().state == fringe->state) { //If none of the successors were viable options
-                explored.push_back(*fringe);
+            if(over) {
+                return 0;
+            }
+            
+            while (tree.top().state != fringe->previous->state && tree.size() > 0) { //If none of the successors were viable options or all successor paths have been explored and turned out to be deadends
+                explored[tree.top().state.string()] = 0;
                 tree.pop();
-                successors = tree.top().state.successors();
-                for (int i = 0 ; i < successors.size() ; i++ ) {
-                    if(successors[i] == fringe->state) {
-                        tree.top().deadends[i] = 1;
-                        break;
-                    }
-                }
-                expand();
-            } //This handles if all successors were duplicates. Go up one and mark the last path as a deadend
+            } //If all of the successors were deadends go up a level
             return 0;
         }
     
         bool duplicate(T& check) {
-            Node itr = tree.top();
-            while(itr.state != T(0)) {
-                if(itr.state == check)
-                    return true;
-                itr = *itr.previous;
+            if (explored[check.string()] == 0) {
+                return false;
             }
-            for(typename list<Node>::iterator itr = explored.begin(); itr != explored.end(); itr++) {
-                if(itr->state == check) {
-                    return true;
+            return true;
+        }
+    
+        void printsolution() {
+            list<T> path;
+            Node* itr = &tree.top();
+            while (tree.size() > 1) {
+                path.push_front(itr->state);
+                itr = itr->previous;
+                while(tree.top().state != itr->state) {
+                    tree.pop();
                 }
             }
-            return false;
-        }
-        
-        void end(T solution) {
-            if (solution == T(0)) {
-                cout << "No solution found\n";
-            }
-            else
-                cout << "Solution found\n";
-                
-            over = true;
+            path.push_front(tree.top().state);
+            tree.top().state.solution(path);
         }
     
         bool isOver() {

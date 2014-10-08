@@ -76,7 +76,7 @@ public:
             solution = leaf;
             cout << "SOLUTION FOUND\n\n";
             over = true;
-            //printsolution();
+            printsolution();
             return 1;
         } //Goal is found
         
@@ -105,7 +105,9 @@ public:
         return false;
     }
     
-/*    void printsolution() {
+    
+    
+    void printsolution() {
         list<T> solutionpath;
         while(solution.state != explored.begin()->state) {
             solutionpath.push_front(solution.state);
@@ -113,7 +115,7 @@ public:
         }
         solution.state.solution(solutionpath);
     }
-*/
+
 };
 
 #endif

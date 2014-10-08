@@ -86,14 +86,18 @@ public:
             cout << itr->prevaction;
             itr--;
         }
-        cout << itr->prevaction;
-        cout <<start;
-        for(int i = 0; i < path.size(); i++) {
+        cout << start;
+        for(int i = 0; i < path.size() - 1; i++) {
             cout << ")";
         }
         cout << " = " << end << "\n";
     }
     
+    string string() {
+        char numstr[21];
+        sprintf(numstr,"%ld %ld",start,end);
+        return numstr;
+    }
     
 };
 
