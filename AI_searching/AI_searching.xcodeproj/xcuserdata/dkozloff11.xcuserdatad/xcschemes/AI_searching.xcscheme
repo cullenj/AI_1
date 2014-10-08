@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "4B40932319E260F5000EEA1E"
+               BlueprintIdentifier = "4B943BD519E515C900EB5363"
                BuildableName = "AI_searching"
                BlueprintName = "AI_searching"
                ReferencedContainer = "container:AI_searching.xcodeproj">
@@ -32,7 +32,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "4B40932319E260F5000EEA1E"
+            BlueprintIdentifier = "4B943BD519E515C900EB5363"
             BuildableName = "AI_searching"
             BlueprintName = "AI_searching"
             ReferencedContainer = "container:AI_searching.xcodeproj">
@@ -51,7 +51,7 @@
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "4B40932319E260F5000EEA1E"
+            BlueprintIdentifier = "4B943BD519E515C900EB5363"
             BuildableName = "AI_searching"
             BlueprintName = "AI_searching"
             ReferencedContainer = "container:AI_searching.xcodeproj">
@@ -69,7 +69,7 @@
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "4B40932319E260F5000EEA1E"
+            BlueprintIdentifier = "4B943BD519E515C900EB5363"
             BuildableName = "AI_searching"
             BlueprintName = "AI_searching"
             ReferencedContainer = "container:AI_searching.xcodeproj">
