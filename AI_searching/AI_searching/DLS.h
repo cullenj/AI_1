@@ -23,7 +23,6 @@ private:
     {
         Node* parent;
         T state;
-        int *deadends;
         int depth;
         Node() {  }
         Node(const T& x) {
@@ -93,6 +92,7 @@ public:
                 expand(successor);
             }
         }
+        explored.pop_back();
         return 0;
     }
     

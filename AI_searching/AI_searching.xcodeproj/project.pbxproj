@@ -27,13 +27,13 @@
 /* Begin PBXFileReference section */
 		4B40932419E260F5000EEA1E /* AI_searching */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = AI_searching; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B40932919E260F5000EEA1E /* AI_searching.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = AI_searching.1; sourceTree = "<group>"; };
-		4B40933819E2619D000EEA1E /* DFS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DFS.h; sourceTree = "<group>"; };
+		4B40933819E2619D000EEA1E /* DFShash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DFShash.h; sourceTree = "<group>"; };
 		4B40933919E2619D000EEA1E /* DLS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLS.h; sourceTree = "<group>"; };
 		4B40933A19E2619D000EEA1E /* IDS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDS.h; sourceTree = "<group>"; };
 		4B40933B19E2619D000EEA1E /* knuth.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = knuth.h; sourceTree = "<group>"; };
 		4B40933C19E2619D000EEA1E /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		4B40933D19E2619D000EEA1E /* npuzzle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = npuzzle.h; sourceTree = "<group>"; };
-		4B40933E19E2619D000EEA1E /* UCS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UCS.h; sourceTree = "<group>"; };
+		4B943BCC19E502CC00EB5363 /* DFSnohash.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DFSnohash.h; sourceTree = "<group>"; };
 		73233EBB19E4BE8000F021BF /* nqueens.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = nqueens.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -67,14 +67,14 @@
 		4B40932619E260F5000EEA1E /* AI_searching */ = {
 			isa = PBXGroup;
 			children = (
-				4B40933819E2619D000EEA1E /* DFS.h */,
+				4B40933C19E2619D000EEA1E /* main.cpp */,
+				4B943BCC19E502CC00EB5363 /* DFSnohash.h */,
+				4B40933819E2619D000EEA1E /* DFShash.h */,
 				4B40933919E2619D000EEA1E /* DLS.h */,
 				4B40933A19E2619D000EEA1E /* IDS.h */,
 				4B40933B19E2619D000EEA1E /* knuth.h */,
-				4B40933C19E2619D000EEA1E /* main.cpp */,
 				4B40933D19E2619D000EEA1E /* npuzzle.h */,
 				73233EBB19E4BE8000F021BF /* nqueens.h */,
-				4B40933E19E2619D000EEA1E /* UCS.h */,
 				4B40932919E260F5000EEA1E /* AI_searching.1 */,
 			);
 			path = AI_searching;

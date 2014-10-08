@@ -162,16 +162,24 @@ public:
         }
     }
     
-    int branch() {
-        return 4;
-    }
-    
-    string string() {
-        stringstream str;
+    string str() {
+        ostringstream str;
         for (int i = 0; i < n+1; i++) {
             str << puzzle[i];
         }
         return str.str();
+    }
+    
+    long hashkey() {
+        long hash;
+        for (int i = 0; i < n+1; i++) {
+            if (puzzle[i] == 0) {
+                hash = hash + pow(10,i+1);
+            }
+            else
+                hash = hash + pow(10,i)*puzzle[i];
+        }
+        return hash;
     }
     
     void solution(list<npuzzle> path) {
@@ -183,6 +191,7 @@ public:
             cout << itr->prevaction;
             itr++;
         }
+        cout << "\nPath size: " << path.size() << "\n";
     }
     
 };

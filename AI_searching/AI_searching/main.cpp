@@ -1,7 +1,6 @@
 #include <iostream>
 #include <time.h>
-#include "DFS.h"
-#include "UCS.h"
+#include "DFShash.h"
 #include "DLS.h"
 #include "IDS.h"
 #include "npuzzle.h"
@@ -22,16 +21,16 @@ int main()
         init[i] = i;
     }
     
+    time(&begin);
+    
     /*
     init[0] = 3; init[3] = 0;
     init[4] = 0; init[3] = 4;
      */
-<<<<<<< Updated upstream:AI_searching/AI_searching/main.cpp
+    init[0] = 2; init [2] = 0;
     
-    init[0] = 3; init [3] = 4; init[4] = 0;
-=======
-    init[5] = 4; init [4] = 5;
-    
+    int* testone = new int[9];
+    testone[0] = 8; testone[1] = 3; testone[2] = 5; testone[3] = 4; testone[4] = 1; testone[5] = 6; testone[6] = 2; testone[7]=7; testone[8]=0;
     /*
     npuzzle* start = new npuzzle();
     start->puzzleinit(8,init);
@@ -41,19 +40,12 @@ int main()
     
     vector<int> vect_test(8,2);
     nqueens eightqueens = nqueens(vect_test,8);
->>>>>>> Stashed changes:AI_searching/AI_searching/main 12.33.19 AM.cpp
     
     npuzzle start;
-    start.puzzleinit(8,init);
-    
-<<<<<<< Updated upstream:AI_searching/AI_searching/main.cpp
+    start.puzzleinit(8,testone);
     /*
-=======
     
     eightqueens.print();
-    
->>>>>>> Stashed changes:AI_searching/AI_searching/main 12.33.19 AM.cpp
-    time(&begin);
     
     
     DFS<npuzzle> search;
@@ -70,28 +62,20 @@ int main()
     /*
     DLS<npuzzle> searchtwo;
     searchtwo.search(*start, 2);
-    
-    
-    time(&end);
-    cout << "Run Time: " << difftime(end,begin);
     */
     
-<<<<<<< Updated upstream:AI_searching/AI_searching/main.cpp
     knuth problem = knuth(3,10,"Start");
     
-    DFS<npuzzle> searchthree;
-    searchthree.problem(start);
-    searchthree.expand();
+    IDS<npuzzle> searchthree;
+    searchthree.search(start);
     
-=======
-    DLS<knuth> searchthree;
-    searchthree.search(problem, 20);
-     */
->>>>>>> Stashed changes:AI_searching/AI_searching/main 12.33.19 AM.cpp
     /*
     IDS<npuzzle> searchfour;
     searchfour.search(*start);
     */
+    
+    time(&end);
+    cout << "\n\nRun Time: " << difftime(end,begin);
     
     return 0;
 };

@@ -16,7 +16,7 @@
 using namespace std;
 template <class T>
 
-class DFS {
+class DFShash {
     
     private:
     
@@ -34,23 +34,23 @@ class DFS {
     long nodeslookedat;
     bool over;
     stack <Node> tree;
-    unordered_map <string,int> explored; //Unique string expression for every possible state,
+    unordered_map <long,int> explored; //Unique string expression for every possible state,
                                          //Set to 1 if visited and 0 if not
     long size;
     
     public:
-        DFS(T& problem) {
+        DFShash(T& problem) {
             over = false;
             tree.push(Node(problem));
             nodeslookedat = 0;
         }
         
-        DFS() {
+        DFShash() {
             over = false;
             nodeslookedat = 0;
         }
         
-        ~DFS()
+        ~DFShash()
         {
             while(!tree.empty()) {
                 tree.pop();
@@ -67,14 +67,14 @@ class DFS {
                 return 0;
             }
             
-            size = tree.size();
-            tree.top().state.print(); //Check State
-            
             if (tree.empty()) {
                 over = true;
                 cout << "No solution found";
                 return -1;
             }
+            
+            size = tree.size();
+            tree.top().state.print(); //Check State
             
             Node* fringe = &tree.top();
             vector<T> successors;
@@ -90,7 +90,7 @@ class DFS {
                 if (!duplicate(successors[i])) {
                     nodeslookedat++;
                     tree.push(Node(successors[i]));
-                    explored[successors[i].string()] = 1;
+                    explored[successors[i].hashkey()] = 1;
                     tree.top().previous = fringe;
                     expand();
                     } //Take first option that isn't a duplicate.
@@ -102,14 +102,14 @@ class DFS {
             }
             
             while (tree.top().state != fringe->previous->state && tree.size() > 0) { //If none of the successors were viable options or all successor paths have been explored and turned out to be deadends
-                explored[tree.top().state.string()] = 0;
+                explored[tree.top().state.hashkey()] = 0;
                 tree.pop();
             } //If all of the successors were deadends go up a level
             return 0;
         }
     
         bool duplicate(T& check) {
-            if (explored[check.string()] == 0) {
+            if (explored[check.hashkey()] == 0) {
                 return false;
             }
             return true;
