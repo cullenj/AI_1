@@ -66,8 +66,9 @@ int main()
     
     knuth problem = knuth(3,10,"Start");
     
-    IDS<npuzzle> searchthree;
-    searchthree.search(start);
+    DFShash<npuzzle> searchthree;
+    searchthree.problem(start);
+    searchthree.expand();
     
     /*
     IDS<npuzzle> searchfour;

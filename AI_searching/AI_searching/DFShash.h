@@ -74,9 +74,10 @@ class DFShash {
             }
             
             size = tree.size();
-            tree.top().state.print(); //Check State
-            
             Node* fringe = &tree.top();
+            fringe->state.print(); //Check State
+
+            
             vector<T> successors;
             successors = fringe->state.successors();
             
