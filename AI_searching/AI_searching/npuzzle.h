@@ -160,11 +160,7 @@ public:
     long hashkey() {
         long hash = 0;
         for (int i = 0; i < n+1; i++) {
-            if (puzzle[i] == 0) {
-                hash = hash + pow(10,i+1);
-            }
-            else
-                hash = hash + pow(10,i)*puzzle[i];
+            hash = hash + pow(10,i)*puzzle[i];
         }
         return hash;
     }
